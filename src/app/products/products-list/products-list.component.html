@@ -1,0 +1,41 @@
+<div *ngIf="loading" class="mt-2 row alert alert-info">
+    Loading Products ...
+   <div class="spinner-border text-primary">
+        <span class="sr-only"></span>
+   </div>
+</div>
+
+<div *ngIf="productList.length">
+   <table class="table table-striped">
+       <thead>
+           <th scope="col">
+               <button (click)="toggleSort('product')" class="btn  btn-sm">product</button>
+           </th>
+           <th scope="col">
+               cost
+           </th>
+           <th scope="col">
+               description
+           </th>
+           <th scope="col">
+               quantity
+           </th>
+       </thead>
+       <tbody>
+           <tr *ngFor="let product of productList">
+               <td>
+                   {{product.product}}
+               </td>
+               <td>
+                   {{product.cost}}
+               </td>
+               <td>
+                   {{product.description}}
+               </td>
+               <td>
+                   {{product.quantity}}
+               </td>
+           </tr>
+       </tbody>
+   </table>
+</div>

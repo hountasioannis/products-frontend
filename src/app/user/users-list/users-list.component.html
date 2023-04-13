@@ -1,0 +1,57 @@
+<div *ngIf="loading" class="mt-2 row alert alert-info">
+     Loading Users ...
+    <div class="spinner-border text-primary">
+         <span class="sr-only"></span>
+    </div>
+</div>
+
+<div *ngIf="userList.length">
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">
+                <button (click)="toggleSort('username')" class="btn  btn-sm">username</button>
+            </th>
+            <th scope="col">
+                <button (click)="toggleSort('name')" class="btn  btn-sm">firstname</button>
+            </th>
+            <th scope="col">
+                <button (click)="toggleSort('surname')" class="btn  btn-sm">lastname</button>
+            </th>
+            <th scope="col">
+                email
+            </th>
+            <th scope="col">
+                address
+            </th>
+            <th scope="col">
+                phone
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+                <td>
+                    {{user.username}}
+                </td>
+                <td>
+                    {{user.name}}
+                </td>
+                <td>
+                    {{user.surname}}
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+                <td>
+                    {{user.address.area}} <br>
+                    {{user.address.road}}
+                </td>
+                <td>
+                    <div *ngFor="let phone of user.phone">
+                        <strong>{{phone.type}}</strong> <br>
+                        {{phone.number}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
